@@ -12,3 +12,5 @@
 
 # Worker Build
 /dist
+
+node_modules
