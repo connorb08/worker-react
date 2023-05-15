@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "esnext": true,
+        "node": true
     },
     "extends": ["prettier", "eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended"],
     // "overrides": [
@@ -12,8 +13,9 @@
         "sourceType": "module"
     },
     "plugins": ["react", "@typescript-eslint", "prettier", "unused-imports", "@typescript-eslint/eslint-plugin"],
+    "ignorePatterns": ["**/build/*.js"],
     "rules": {
-        "prettier/prettier": ["error"],
+        "prettier/prettier": ["warn"],
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
         "react/react-in-jsx-scope": "off",

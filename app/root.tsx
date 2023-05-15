@@ -1,9 +1,20 @@
 import type { PropsWithChildren } from 'react'
 import { StaticHandlerContext, StaticRouterProvider } from 'react-router-dom/server'
 
-const NOCACHE = process.env.NODE_ENV === 'development'
+const Scripts = () => {
+    const scripts = SCRIPT_FILES.split('_|_')
+    return (
+        <>
+            {scripts.map((script) => {
+                return <script src={script} async />
+            })}
+        </>
+    )
+}
 
 const Document = (props: PropsWithChildren) => {
+    const NOCACHE = process.env.NODE_ENV === 'development' && false
+    const className = 'bg-sky-950 font-mono'
     return (
         <html lang="en">
             <head>
@@ -13,15 +24,16 @@ const Document = (props: PropsWithChildren) => {
                 <meta name="description" content="Beta version of connorbray.net" />
                 <link href={`/build/tailwind.css${NOCACHE ? `?c=${Math.random()}` : ''}`} rel="stylesheet" />
             </head>
-            <body>
+            <body className={`${className}`}>
                 <div id="root">{props.children}</div>
-                <script src={`/build/client.entry.js${NOCACHE ? `?c=${Math.random()}` : ''}`} async />
+                <Scripts />
             </body>
         </html>
     )
 }
 
-const App = (props: PropsWithChildren<{ router: never; context: StaticHandlerContext }>) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const App = (props: PropsWithChildren<{ router: any; context: StaticHandlerContext }>) => {
     return (
         <Document>
             <StaticRouterProvider router={props.router} context={props.context} />

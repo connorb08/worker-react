@@ -9,6 +9,8 @@
 # Site Build
 /build
 /public/build
+public/root*
+public/service-worker.js*
 
 # Worker Build
 /dist

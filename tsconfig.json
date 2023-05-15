@@ -6,7 +6,7 @@
             "~/*": ["./*"]
         },
         "target": "ESNext",
-        "lib": ["ESNext", "DOM"],
+        "lib": ["ESNext", "DOM", "WebWorker"],
         "jsx": "react-jsx",
         "module": "esnext",
         "moduleResolution": "node",

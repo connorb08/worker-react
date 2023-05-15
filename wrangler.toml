@@ -1,6 +1,7 @@
 main = 'dist/index.js'
 compatibility_date = "2023-05-11"
 name = "beta-connorbray-net"
+services = [{ binding = "connorbrayapi", service = "connorbrayapi" }]
 
 [site]
 bucket = "./public"
@@ -11,18 +12,23 @@ command = "yarn build"
 [vars]
 NODE_ENV = "production"
 
+
 [env.production]
-routes = [{pattern = "beta.connorbray.net", custom_domain = true}]
+services = [{ binding = "connorbrayapi", service = "connorbrayapi" }]
+routes = [{ pattern = "beta.connorbray.net", custom_domain = true }]
+
 
 [env.production.vars]
 NODE_ENV = "production"
 
 [env.development]
-routes = [{pattern = "dev.connorbray.net", custom_domain = true}]
+services = [{ binding = "connorbrayapi", service = "connorbrayapi" }]
+routes = [{ pattern = "dev.connorbray.net", custom_domain = true }]
+
 
 [env.development.vars]
 NODE_ENV = "development"
 
 [env.development.build]
-command = "yarn build:dev"
+command = "yarn build:style && yarn build:dev"
 watch_dir = "app/"

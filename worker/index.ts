@@ -3,11 +3,14 @@ import { handleAsset, handleRequest } from './handler'
 const worker: ExportedHandler<Env> = {
     async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
         try {
-            const response = await handleAsset(request, env, ctx)
+            const path = new URL(request.url).pathname
 
-            // if (process.env.NODE_ENV === 'development') {
-            //   response.headers.set("Cache-Control", "no-cache");
-            // }
+            if (path.startsWith('/api')) {
+                const clone = new Request(`https://api.connorbray.net/${path.slice(4)}`, request.clone())
+                return await env.connorbrayapi.fetch(clone, env, ctx)
+            }
+
+            const response = await handleAsset(request, env, ctx)
 
             if (response.status === 404) {
                 console.log('Asset not found, sending to request handler')

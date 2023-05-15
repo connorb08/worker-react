@@ -5,7 +5,7 @@ import routes from './routes'
 import App from './root'
 
 export default async function handleRequest(request: Request) {
-    let responseStatusCode: number = 200
+    let responseStatusCode = 200
     const responseHeaders: Headers = {} as Headers
 
     const handler = createStaticHandler(routes)
@@ -24,8 +24,6 @@ export default async function handleRequest(request: Request) {
     const body = await renderToReadableStream(
         <React.StrictMode>
             <App router={router} context={context} />
-            {/* <StaticRouterProvider router={router} context={context} /> */}
-            {/* </App> */}
         </React.StrictMode>,
         {
             onError: (error) => {

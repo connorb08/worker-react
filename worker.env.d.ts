@@ -9,6 +9,7 @@ declare module '__STATIC_CONTENT_MANIFEST' {
 interface Env {
     __STATIC_CONTENT: string
     NODE_ENV: string
+    connorbrayapi: any
 }
 
 // interface Env {
