@@ -1,13 +1,13 @@
 import type { RouteObject } from 'react-router-dom'
 import { About } from './components/components'
 import { Home } from './components/components'
-import Layout from './components/Layout'
+import Root from './root'
 import { ErrorPage } from './components/Pages/error'
 
 const routes: RouteObject[] = [
     {
         path: '/',
-        element: <Layout />,
+        element: <Root />,
         children: [
             {
                 path: '',

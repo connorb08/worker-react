@@ -16,7 +16,9 @@ const Scripts = () => {
 
 const Document = (props: PropsWithChildren) => {
     const NOCACHE = process.env.NODE_ENV === 'development' && false
-    const className = 'bg-sky-950 font-mono'
+    const className = 'bg-sky-950 font-mono overscroll-none'
+    // @ts-expect-error : __TAILWIND_SCRIPT is a macro to include build file names
+    const tailwind_script = __TAILWIND_SCRIPT as string
     return (
         <html lang="en">
             <head>
@@ -24,7 +26,7 @@ const Document = (props: PropsWithChildren) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta charSet="UTF-8" />
                 <meta name="description" content="Beta version of connorbray.net" />
-                <link href={`/build/tailwind.css${NOCACHE ? `?c=${Math.random()}` : ''}`} rel="stylesheet" />
+                <link href={tailwind_script} rel="stylesheet" />
             </head>
             <body className={`${className}`}>
                 <div id="root">{props.children}</div>

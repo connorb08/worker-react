@@ -70,7 +70,9 @@ async function build() {
     const startTime = Date.now()
 
     console.log(IS_PRODUCTION ? 'Building in production...' : 'Building in development...')
-    // const productionBuilds = [...buildStepOne, ...]
+
+    const __TAILWIND_SCRIPT = process.argv[2] || '/build/tailwind.css'
+    console.log(__TAILWIND_SCRIPT)
 
     const scriptFiles = []
 
@@ -97,6 +99,7 @@ async function build() {
     const define = {
         'process.env.NODE_ENV': `"${process.env.NODE_ENV}"`,
         __SCRIPT_FILES: `"${buildFiles}"`,
+        __TAILWIND_SCRIPT: `"${__TAILWIND_SCRIPT}"`,
     }
 
     const buildStepTwo = [

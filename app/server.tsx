@@ -1,7 +1,7 @@
 import React from 'react'
 import { renderToReadableStream } from 'react-dom/server'
 import { createStaticHandler, createStaticRouter } from 'react-router-dom/server'
-import routes from './routes'
+import routes from './routes/routes'
 import App from './root'
 
 export default async function handleRequest(request: Request) {
