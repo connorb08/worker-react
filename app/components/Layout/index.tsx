@@ -16,7 +16,7 @@ const Layout = () => {
                     className="text-white bg-blue-600 hover:bg-blue-700 px-3 py-2 rounded absolute z-20 bottom-3"
                     onClick={togglePage}
                 >
-                    Toggle Page
+                    Toggle Home
                 </button>
             </div>
         </div>

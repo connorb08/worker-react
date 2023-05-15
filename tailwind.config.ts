@@ -9,5 +9,5 @@ export default {
             mono: ['"Source Code Pro"', ...defaultTheme.fontFamily.mono],
         },
     },
-    plugins: [],
+    plugins: [require('daisyui')],
 }

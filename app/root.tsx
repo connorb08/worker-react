@@ -1,12 +1,13 @@
 import type { PropsWithChildren } from 'react'
-import { StaticHandlerContext, StaticRouterProvider } from 'react-router-dom/server'
+import type { StaticHandlerContext } from 'react-router-dom/server'
+import { StaticRouterProvider } from 'react-router-dom/server'
 
 const Scripts = () => {
-    const scripts = SCRIPT_FILES.split('_|_')
+    const scripts: string[] = SCRIPT_FILES.split('_|_') as string[]
     return (
         <>
-            {scripts.map((script) => {
-                return <script src={script} async />
+            {scripts.map((script, index) => {
+                return <script src={script} key={index} async />
             })}
         </>
     )

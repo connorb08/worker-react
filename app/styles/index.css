@@ -3,3 +3,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.CollapseTransition {
+    height: 400px;
+    background-color: white;
+    padding: 10px;
+    transition: height 2s ease 0.5s;
+}
+
+.Collapsed {
+    height: 0px;
+}
