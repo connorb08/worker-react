@@ -1,6 +1,23 @@
 {
     "folders": [
         {
+            "name": "app_",
+            "path": "./app"
+        },
+        {
+            "name": "public_",
+            "path": "./public"
+        },
+        {
+            "name": "scripts_",
+            "path": "./scripts"
+        },
+        {
+            "name": "worker_",
+            "path": "./worker"
+        },
+        {
+            "name": "config",
             "path": "."
         }
     ],
@@ -13,6 +30,18 @@
         "eslint.validate": ["javascript"],
         "files.associations": {
             "**/*.js": "javascript"
+        },
+        "files.exclude": {
+            "**/.git": true,
+            "**/.svn": true,
+            "**/.hg": true,
+            "**/CVS": true,
+            "**/.DS_Store": true,
+            "**/Thumbs.db": true,
+            "**/app/": true,
+            "**/public/": true,
+            "**/scripts/": true,
+            "**/worker/": true
         }
     }
 }
