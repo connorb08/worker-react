@@ -1,6 +1,7 @@
 import * as esbuild from 'esbuild'
 
-const IS_PRODUCTION = process.env.NODE_ENV === 'production'
+const IS_PRODUCTION = true
+// process.env.NODE_ENV === 'production'
 
 const buildSiteScripts = [
     {
@@ -8,7 +9,7 @@ const buildSiteScripts = [
         entryNames: 'root-[hash]',
         outdir: './public',
         bundle: true,
-        minify: IS_PRODUCTION,
+        minify: true,
         sourcemap: !IS_PRODUCTION,
         format: 'esm',
         metafile: true,
@@ -66,7 +67,6 @@ const buildSiteScripts = [
 // ]
 
 async function build() {
-    const results = []
     const startTime = Date.now()
 
     console.log(IS_PRODUCTION ? 'Building in production...' : 'Building in development...')
@@ -96,7 +96,7 @@ async function build() {
 
     const define = {
         'process.env.NODE_ENV': `"${process.env.NODE_ENV}"`,
-        SCRIPT_FILES: `"${buildFiles}"`,
+        __SCRIPT_FILES: `"${buildFiles}"`,
     }
 
     const buildStepTwo = [

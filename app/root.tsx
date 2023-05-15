@@ -3,7 +3,8 @@ import type { StaticHandlerContext } from 'react-router-dom/server'
 import { StaticRouterProvider } from 'react-router-dom/server'
 
 const Scripts = () => {
-    const scripts: string[] = SCRIPT_FILES.split('_|_') as string[]
+    // @ts-expect-error : __SCRIPT_FILES is a macro to include build file names
+    const scripts: string[] = __SCRIPT_FILES.split('_|_') as string[]
     return (
         <>
             {scripts.map((script, index) => {

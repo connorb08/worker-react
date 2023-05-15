@@ -2,6 +2,10 @@
 
 Size - this site
 
+69KB zipped uplaod size
+
+268KB unzipped
+
 Worker script: 209983 - 209k
 
 -   Maybe can reduce size?

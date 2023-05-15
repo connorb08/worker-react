@@ -5,14 +5,34 @@
 export type {}
 declare const self: ServiceWorkerGlobalScope
 
-const cacheName = '::connorbrayworker'
+const cacheName = '::beta.connorbray.net'
 const version = 'v0.0.1'
+
+// @ts-expect-error : __SCRIPT_FILES is a macro
+const scripts: string[] = __SCRIPT_FILES.split('_|_') as string[]
+
+for (const index in scripts) {
+    if (!scripts[index].startsWith('/')) {
+        scripts[index] = `/${scripts[index]}`
+    }
+}
+
+// Get routes here? pull from router file? or fall back to / when not found?
+const filestoCache = ['/', '/offline', '/build/tailwind.css', ...scripts]
 
 self.addEventListener('install', function (event) {
     event.waitUntil(
-        caches.open(version + cacheName).then(function (cache) {
-            return cache.addAll(['/', '/offline', '/build'])
-        })
+        caches
+            .open(version + cacheName)
+            .then(async (cache) => {
+                return cache.addAll(filestoCache).catch((error) => {
+                    console.log(error)
+                })
+            })
+            .catch((err) => {
+                console.log('error during install cache add all')
+                console.log(err)
+            })
     )
 })
 
@@ -40,14 +60,22 @@ self.addEventListener('fetch', function (event) {
 
     // Always fetch API requests from the network
     if (path.startsWith('/api')) {
-        event.respondWith(
-            fetch(request).catch(function () {
-                const body = JSON.stringify({
-                    message: 'Cannot connect to host',
-                })
-                return new Response(body, { status: 204 })
-            }) as Promise<Response>
-        )
+        try {
+            event.respondWith(
+                fetch(request).catch(function () {
+                    console.log('return error on fetch api')
+                    const body = JSON.stringify({
+                        message: 'Cannot connect to host',
+                    })
+                    return new Response(body, { status: 504 })
+
+                    return caches.match('/offline')
+                }) as Promise<Response>
+            )
+        } catch (error) {
+            console.log('error in api fetch:')
+            console.log(error)
+        }
     }
 
     // Always fetch non-GET requests from the network

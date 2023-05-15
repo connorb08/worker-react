@@ -2,6 +2,7 @@ import type { RouteObject } from 'react-router-dom'
 import { About } from './components/components'
 import { Home } from './components/components'
 import Layout from './components/Layout'
+import { ErrorPage } from './components/Pages/error'
 
 const routes: RouteObject[] = [
     {
@@ -17,6 +18,12 @@ const routes: RouteObject[] = [
                 element: <About />,
             },
         ],
+        errorElement: <ErrorPage />,
+    },
+    {
+        path: '/offline',
+        element: <ErrorPage />,
+        errorElement: <ErrorPage />,
     },
 ]
 

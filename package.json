@@ -13,7 +13,7 @@
         "dev": "yarn build:dev && concurrently \"yarn:dev:*\"",
         "dev:worker": "wrangler dev --port 3000 --env development",
         "dev:style": "tailwindcss -o ./public/build/tailwind.css --minify --watch",
-        "clean": "rm -rf ./dist ./public/build ./public/service-worker.js ./public/root.js",
+        "clean": "rm -rf ./dist ./public/build ./public/service-worker.js ./public/root*.js",
         "local": "yarn build:dev && concurrently \"yarn:local:*\"",
         "local:wrangler": "wrangler dev dist/index.js --experimental-local --port 3000 --env development",
         "local:style": "tailwindcss -o ./public/build/tailwind.css --minify --watch",
