@@ -12,11 +12,9 @@ command = "yarn build"
 [vars]
 NODE_ENV = "production"
 
-
 [env.production]
 services = [{ binding = "connorbrayapi", service = "connorbrayapi" }]
 routes = [{ pattern = "beta.connorbray.net", custom_domain = true }]
-
 
 [env.production.vars]
 NODE_ENV = "production"
@@ -30,5 +28,5 @@ routes = [{ pattern = "dev.connorbray.net", custom_domain = true }]
 NODE_ENV = "development"
 
 [env.development.build]
-command = "yarn build:style && yarn build:dev"
+command = "yarn build"
 watch_dir = "app/"

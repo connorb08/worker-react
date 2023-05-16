@@ -2,7 +2,7 @@ import type { PropsWithChildren } from 'react'
 import { Link } from 'react-router-dom'
 
 const Container = (props: PropsWithChildren) => {
-    return <div className="text-center flex flex-col gap-5">{props.children}</div>
+    return <div className="text-center flex-1 flex flex-col justify-center gap-5">{props.children}</div>
 }
 
 export const Home = () => {

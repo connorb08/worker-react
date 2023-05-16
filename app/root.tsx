@@ -16,7 +16,7 @@ const Scripts = () => {
 
 const Document = (props: PropsWithChildren) => {
     const NOCACHE = process.env.NODE_ENV === 'development' && false
-    const className = 'bg-sky-950 font-mono overscroll-none'
+    const className = 'bg-base-200 font-mono overscroll-none'
     // @ts-expect-error : __TAILWIND_SCRIPT is a macro to include build file names
     const tailwind_script = __TAILWIND_SCRIPT as string
     return (

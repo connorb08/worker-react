@@ -1,26 +1,5 @@
 {
-    "folders": [
-        {
-            "name": "app_",
-            "path": "./app"
-        },
-        {
-            "name": "public_",
-            "path": "./public"
-        },
-        {
-            "name": "scripts_",
-            "path": "./scripts"
-        },
-        {
-            "name": "worker_",
-            "path": "./worker"
-        },
-        {
-            "name": "config",
-            "path": "."
-        }
-    ],
+    "extensions": { "recommendations": ["arcanis.vscode-zipfs", "dbaeumer.vscode-eslint", "esbenp.prettier-vscode"] },
     "settings": {
         "typescript.tsdk": ".yarn/sdks/typescript/lib",
         "typescript.enablePromptUseWorkspaceTsdk": true,
@@ -31,17 +10,32 @@
         "files.associations": {
             "**/*.js": "javascript"
         },
-        "files.exclude": {
-            "**/.git": true,
-            "**/.svn": true,
-            "**/.hg": true,
-            "**/CVS": true,
-            "**/.DS_Store": true,
-            "**/Thumbs.db": true,
-            "**/app/": true,
-            "**/public/": true,
-            "**/scripts/": true,
-            "**/worker/": true
+        // "files.exclude": {
+        //     "**/.git": true,
+        //     "**/.svn": true,
+        //     "**/.hg": true,
+        //     "**/CVS": true,
+        //     "**/.DS_Store": true,
+        //     "**/Thumbs.db": true,
+        //     "**/app/": true,
+        //     "**/public/": true,
+        //     "**/scripts/": true,
+        //     "**/worker/": true
+        // },
+        "search.exclude": {
+            "**/.yarn": true,
+            "**/.pnp.*": true
+        },
+        "eslint.nodePath": ".yarn/sdks",
+        "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+        "editor.formatOnSave": true,
+        "[javascript]": {
+            "editor.formatOnSave": false
         }
-    }
+    },
+    "folders": [
+        {
+            "path": "."
+        }
+    ]
 }

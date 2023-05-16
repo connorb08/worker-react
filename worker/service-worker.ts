@@ -65,7 +65,8 @@ self.addEventListener('fetch', function (event) {
                 fetch(request).catch(function () {
                     console.log('return error on fetch api')
                     const body = JSON.stringify({
-                        message: 'Cannot connect to host',
+                        ok: false,
+                        message: 'Cannot connect to host.',
                     })
                     return new Response(body, { status: 504 })
 
