@@ -3,6 +3,7 @@ import { About } from './components/components'
 import { Home } from './components/components'
 import Root from './root'
 import { ErrorPage } from './components/Pages/error'
+import ResumeCreator from './components/ResumeCreator'
 
 const routes: RouteObject[] = [
     {
@@ -18,6 +19,11 @@ const routes: RouteObject[] = [
                 element: <About />,
             },
         ],
+        errorElement: <ErrorPage />,
+    },
+    {
+        path: '/resume',
+        element: <ResumeCreator />,
         errorElement: <ErrorPage />,
     },
     {

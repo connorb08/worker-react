@@ -21,6 +21,7 @@
         "@cloudflare/kv-asset-handler": "^0.3.0",
         "@cloudflare/workers-types": "^4.20230511.0",
         "@miniflare/tre": "3.0.0-next.13",
+        "@types/css": "^0.0.33",
         "@types/node": "^20.1.4",
         "@types/react": "^18.2.6",
         "@types/react-dom": "^18.2.4",

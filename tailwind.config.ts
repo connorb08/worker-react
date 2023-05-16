@@ -8,6 +8,13 @@ export default {
             serif: [...defaultTheme.fontFamily.serif],
             mono: ['"Source Code Pro"', ...defaultTheme.fontFamily.mono],
         },
+        extend: {
+            fontFamily: {
+                // eslint-disable-next-line prettier/prettier
+                times: ['"Times New Roman"', 'sans-serif'],
+                scp: ['"Source Code Pro"', 'monospace'],
+            },
+        },
     },
     plugins: [require('daisyui')],
 }

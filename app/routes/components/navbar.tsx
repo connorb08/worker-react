@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 interface Props {
     openHero: () => void
 }
@@ -57,12 +59,14 @@ export const Navbar = ({ openHero }: Props) => {
                         </li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">connorbray.net</a>
+                <Link to="/" className="btn btn-ghost normal-case text-xl">
+                    connorbray.net
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <li>
-                        <a>Item 1</a>
+                        <Link to="/resume">Resume</Link>
                     </li>
                     <li tabIndex={0}>
                         <a>
@@ -87,7 +91,7 @@ export const Navbar = ({ openHero }: Props) => {
                         </ul>
                     </li>
                     <li>
-                        <a>Item 3</a>
+                        <Link to="/about">About</Link>
                     </li>
                 </ul>
             </div>
