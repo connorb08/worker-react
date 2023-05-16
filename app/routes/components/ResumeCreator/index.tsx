@@ -36,7 +36,7 @@ const ResumeDocument = (props: ResumeProps) => {
     return (
         <div
             key={key}
-            className="flex-1 min-w-[calc(600px)] bg-white text-black"
+            className="flex-1 min-w-[calc(600px)] bg-white text-black overflow-hidden"
             style={{ aspectRatio: 8.5 / 11, fontFamily: props.style.font }}
         >
             <div
